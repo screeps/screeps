@@ -15,11 +15,11 @@
   "dependencies": {
     "@screeps/backend": "1.0.1",
     "@screeps/common": "1.0.0",
-    "@screeps/driver": "1.0.0",
+    "@screeps/driver": "1.0.1",
     "@screeps/engine": "1.0.1",
-    "@screeps/launcher": "1.0.2",
+    "@screeps/launcher": "1.0.3",
     "@screeps/pathfinding": "0.4.16",
     "@screeps/storage": "1.0.2"
   },
-  "screeps_build": 34
+  "screeps_build": 35
 }
