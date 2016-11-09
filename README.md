@@ -27,6 +27,13 @@ You will be prompted for your Steam Web API key, you can obtain it on [this page
 
 **Your own launcher.** The launchers are intended to launch other server's processes and give them correct environment variables. You can launch those processes your own way (for example, via upstart/systemd, for distributing them across different machines, or setting up an automated testing framework). Please refer to the file [`launcher/lib/start.js`](https://github.com/screeps/launcher/tree/master/lib/start.js) for the list of environment variables that each process needs.
 
+Connect to server
+-----------------
+
+You can connect to your private server using the Steam game client. Click "Change server" and enter your server credentials:
+
+![client](client.png)
+
 Launch options
 --------------
 
@@ -85,7 +92,13 @@ The server does not have any user authentication mechanism of its own. Instead, 
 Command Line Interface (CLI)
 ----------------------------
 
-The running server process provides administrative access using a separate port (21026 by default) which allows executing inner server commands using batch commands. The CLI server contains a JavaScript virtual machine allowing to run any valid JS code and work with inner server functions. They allow changing game objects and call procedures, including those added by you. Some examples of such commands:
+The running server process provides administrative access using a separate port (21026 by default) which allows executing inner server commands using batch commands. It is accessible through the Steam GUI or using this console command:
+   
+```
+screeps cli
+```
+
+The CLI server contains a JavaScript virtual machine allowing to run any valid JS code and work with inner server functions. They allow changing game objects and call procedures, including those added by you. Some examples of such commands:
 
 ```
 // View user's data by his username
