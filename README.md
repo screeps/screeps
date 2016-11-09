@@ -11,13 +11,18 @@ The server consists of multiple parallel processes linked to each other. There i
 
 **Desktop launcher.** This is the easiest way to launch the server. It comes with the standard package of the [Steam version](http://store.steampowered.com/app/464350) of the game. You launch the game via the server's executable file that shows the GUI with logs of all started processes and the CLI interface to control the server.
 
-**Console launcher.** You can also launch the server without the GUI using the command line (you will need Node.js >= 6.5.0 installed for this).
+**Console launcher.** You can also launch the server without the GUI using the command line:
 
 ```
 npm install -g screeps
 screeps init
 screeps start
 ```
+
+Prerequisites:
+ * Node.js 4 or higher
+ * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193)) 
+
 You will be prompted for your Steam Web API key, you can obtain it on [this page](https://steamcommunity.com/dev/apikey).
 
 **Your own launcher.** The launchers are intended to launch other server's processes and give them correct environment variables. You can launch those processes your own way (for example, via upstart/systemd, for distributing them across different machines, or setting up an automated testing framework). Please refer to the file [`launcher/lib/start.js`](https://github.com/screeps/launcher/tree/master/lib/start.js) for the list of environment variables that each process needs.
@@ -27,12 +32,9 @@ Launch options
 
 If you use a stock launcher (either desktop or console), the file `.screepsrc` in the current catalog stores launch configuration options. You can specify them directly when you launch the server using the console command `start`.
 
-	screeps start --help
-	
-	Usage: start [options]
-	
-	Start all processes. Launch options can be configured from command line or using the .screepsrc file in the same folder.
-	
+	> screeps start --help	
+	Usage: start [options]	
+	Start all processes. Launch options can be configured from command line or using the .screepsrc file in the same folder.	
 	Options:
 	
 	    -h, --help               output usage information
@@ -119,7 +121,7 @@ module.exports = function (config) {
 
 Each server process will automatically include all the mods at launch and pass the object `config` to them with properties corresponding to the type of the launched process. If the server consists of 10 processes, then each mod file will be requested 10 times, each time with a different type of config.
 
-Properties can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder `mods/examples` offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
+Properties can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder [`mods/examples`](https://github.com/screeps/launcher/tree/master/init_dist/mods/examples) offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
 
 Installing mods
 ---------------
