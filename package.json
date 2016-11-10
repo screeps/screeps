@@ -20,6 +20,5 @@
     "@screeps/launcher": "1.0.3",
     "@screeps/pathfinding": "0.4.16",
     "@screeps/storage": "1.0.2"
-  },
-  "screeps_build": 35
+  }
 }
