@@ -47,7 +47,7 @@ If you use a stock launcher (either desktop or console), the file `.screepsrc` i
 	    -h, --help               output usage information
 	    --db <path>              The path to the database file.
 	    --logdir <path>          The path to directory where logs will be created.
-	    --moddir <path>          The path to directory where custom mods will be loaded from.
+	    --modfile <path>          The path to JSON file with the list of custom mods to load. Defaults to mods.json.
 	    --assetdir <path>        The path to directory where static assets are located.
 	    --port <port>            The port number on which the game server should listen. Defaults to 21025.
 	    --host <host>            The hostname on which the game server should listen. Defaults to 0.0.0.0.
@@ -124,7 +124,7 @@ Mods
 
 The game server is written in such a way that you can redefine and configure many aspects of its work. **Do not modify server code directly!** This will block you from updating with new releases, and the official Steam client of other players will stop connecting to your server. Rather than editing the server's source, create *mods*.
 
-Mods are simple js files listed in the `mods/mods.json` (the default folder can be changed through the `moddir` launch option).  Each file must be a Node.js module that exports a single function that receives as an argument a `config` object:
+Mods are simple js files listed in the `mods.json` (the default folder can be changed through the `modfile` launch option).  Each file must be a Node.js module that exports a single function that receives as an argument a `config` object:
 
 ```
 module.exports = function (config) {
@@ -134,15 +134,15 @@ module.exports = function (config) {
 
 Each server process will automatically include all the mods at launch and pass the object `config` to them with properties corresponding to the type of the launched process. If the server consists of 10 processes, then each mod file will be requested 10 times, each time with a different type of config.
 
-Properties can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder [`mods/examples`](https://github.com/screeps/launcher/tree/master/init_dist/mods/examples) offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
+Properties can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder [`example-mods`](https://github.com/screeps/launcher/tree/master/init_dist/example-mods) offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
 
 Installing mods
 ---------------
 
 There are three methods to install a mod to your server:
 
-* Edit `mods/mods.json` manually and add a new entry to the array in it.
-* If the mod is published to the NPM repository, you can run `npm install my-screeps-mod` in the `mods` folder, and it will be added automatically. The mod's `package.json` should contain `"screeps_mod":true` parameter in this case:
+* Edit `mods.json` manually and add a new entry to the array in it.
+* If the mod is published to the NPM repository, you can run `npm install my-screeps-mod` in your server folder, and it will be added automatically. The mod's `package.json` should contain `"screeps_mod":true` parameter in this case:
 ```
 {
   "name": "my-screeps-mod",
