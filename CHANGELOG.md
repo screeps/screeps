@@ -1,3 +1,7 @@
+#### 1.0.6
+* `config.cli.createSandbox` is deprecated now, use `config.cli.onCliSandbox` instead.
+* Fixed permissions for scripts in `node_modules/.hooks` after running `screeps init`.
+ 
 #### 1.0.5
 * Replaced `moddir` launch option with `modfile`. The `mods.json` file is moved to the same folder as `.screepsrc`. The `mods` folder is no longer used now.
 * Added new modding option `config.backend.welcomeText`.
