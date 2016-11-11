@@ -101,6 +101,12 @@ screeps cli
 The CLI server contains a JavaScript virtual machine allowing to run any valid JS code and work with inner server functions. They allow changing game objects and call procedures, including those added by you. Some examples of such commands:
 
 ```
+// Send a server message to all connected users
+tools.sendServerMessage("OHAI");
+
+// Generate a new room and add it to the world
+map.generateRoom("E0N3", {sources: 4, terrainType: 2});
+
 // View user's data by his username
 storage.db['users'].findOne({username: "User"});
 
@@ -109,12 +115,6 @@ storage.db['rooms.objects'].find({$and: [{room: 'W1N1'}, {type: 'creep'}]});
 
 // Remove an object by its id
 storage.db['rooms.objects'].removeWhere({_id: "abcdef"});
-
-// Send a server message to all connected users
-tools.sendServerMessage("OHAI");
-
-// Make a room unavailable for spawning
-map.closeRoom("W1N1");
 ```
 
 Type `help()` to get a detailed help for all available objects.
