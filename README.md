@@ -153,6 +153,44 @@ There are three methods to install a mod to your server:
 ```
 * Using the Steam Workshop (this is still under development).
 
+NPC bots
+--------
+
+You can create autonomous NPC bot players on your private server. They work as regular players, but you can specify their
+ AI scripts in `bots` option at your `mods.json` file. Initially there is one AI loaded into your server, called 
+ [`simplebot`](https://github.com/screeps/launcher/tree/master/init_dist/node_modules/@screeps/simplebot), but you 
+  can always add more, and share with other players.
+   
+Use the following CLI commands to control bot players on your server:
+
+```
+> help(bots);
+Available methods:
+ - bots.spawn(botAiName, roomName, [opts]) - Create a new NPC player with bot AI scripts, and spawn it to the specified room. 'opts' is an object with the following optional pr
+operties:
+    * name - the name of a bot player, default is randomly generated
+    * cpu - the CPU limit of a bot user, default is 100
+    * gcl - the Global Control Level of a bot user, default is 1
+    * x - the X position of the spawn in the room, default is random
+    * y - the Y position of the spawn in the room, default is random
+ - bots.reload(botAiName) - Reload scripts for the specified bot AI.
+ - bots.removeUser(username) - Delete the specified bot player and all its game objects.
+Bot AIs:
+ - simplebot [D:\SteamLibrary\steamapps\common\Screeps\server\@screeps\simplebot\src]
+```
+ 
+If you want to publish your bot AI to the NPM repository, set `main.js` as the main entry in your `package.json`, and add `screeps_bot:true` parameter:
+
+```
+{
+  "name": "my-screeps-bot",
+  "version": "1.0.0",
+  "main": "src/main.js",  
+  "screeps_bot": true
+}
+```
+
+
 TODO
 ----
 
