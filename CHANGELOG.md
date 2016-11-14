@@ -1,3 +1,9 @@
+#### 2.0.0
+* **Breaking change:** replaced all callback methods in mods `config` object with events. See example mods to learn more.
+* Introduced autonomous NPC bot players system, see [README](https://github.com/screeps/screeps#npc-bots).
+* Fixed a bug with creeps unable to move in newly generated rooms.   
+* New users are created with 100 CPU limit. 
+
 #### 1.0.7
 * `config.cli.createSandbox` is deprecated now, use `config.cli.onCliSandbox` instead.
 * Fixed permissions for scripts in `node_modules/.hooks` after running `screeps init`.
