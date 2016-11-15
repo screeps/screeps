@@ -1,3 +1,6 @@
+#### 2.1.0
+* Added [Steam Workshop](http://steamcommunity.com/app/464350/workshop/) support for mods and bot AI scripts. 
+    Use your Steam client server launcher to submit npm packages to the Workshop.
 #### 2.0.0
 * **Breaking change:** replaced all callback methods in mods `config` object with events. See example mods to learn more.
 * Introduced autonomous NPC bot players system, see [README](https://github.com/screeps/screeps#npc-bots).
