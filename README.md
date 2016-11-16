@@ -189,13 +189,3 @@ If you want to publish your bot AI to the NPM repository, set `main.js` as the m
   "screeps_bot": true
 }
 ```
-
-
-TODO
-----
-
-Features not implemented yet:
-
-* Room statistics
-* Power banks spawning
-* Market statistics
