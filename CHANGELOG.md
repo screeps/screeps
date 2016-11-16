@@ -1,3 +1,6 @@
+#### 2.1.1
+* Add the title field in the Steam Workshop mods editor
+
 #### 2.1.0
 * Added [Steam Workshop](http://steamcommunity.com/app/464350/workshop/) support for mods and bot AI scripts. 
     Use your Steam client server launcher to submit npm packages to the Workshop.
