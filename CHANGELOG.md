@@ -1,10 +1,13 @@
+#### 2.1.3
+* Removed respawn delay timer.
+ 
 #### 2.1.2
 * Added new CLI `system` object. Moved all methods from `tools` to `system` and `map`.
 * Added new CLI method `system.runCronjob`.
 * Fixed an incorrect value of `Game.cpu.limit` property.
 
 #### 2.1.1
-* Added the title field in the Steam Workshop mods editor
+* Added the title field in the Steam Workshop mods editor.
 
 #### 2.1.0
 * Added [Steam Workshop](http://steamcommunity.com/app/464350/workshop/) support for mods and bot AI scripts. 
