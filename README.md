@@ -9,7 +9,7 @@ Server launch
 
 The server consists of multiple parallel processes linked to each other. There is a separate launcher process to launch them correctly, and these launchers have various versions for different purposes.
 
-**Desktop launcher.** This is the easiest way to launch the server. It comes with the standard package of the [Steam version](http://store.steampowered.com/app/464350) of the game. You launch the game via the server's executable file that shows the GUI with logs of all started processes and the CLI interface to control the server.
+**GUI launcher.** This is the easiest way to launch the server. It comes with the standard package of the [Steam version](http://store.steampowered.com/app/464350) of the game. You launch the game via the server's executable file that shows the GUI with logs of all started processes and the CLI interface to control the server.
 
 **Console launcher.** You can also launch the server without the GUI using the command line:
 
