@@ -101,8 +101,11 @@ screeps cli
 The CLI server contains a JavaScript virtual machine allowing to run any valid JS code and work with inner server functions. They allow changing game objects and call procedures, including those added by you. Some examples of such commands:
 
 ```
+// Add an NPC bot to the map
+bots.spawn('simplebot', 'W3N1');
+
 // Send a server message to all connected users
-tools.sendServerMessage("OHAI");
+system.sendServerMessage("OHAI");
 
 // Generate a new room and add it to the world
 map.generateRoom("E0N3", {sources: 4, terrainType: 2});
