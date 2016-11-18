@@ -137,7 +137,7 @@ module.exports = function (config) {
 
 Each server process will automatically include all the mods at launch and pass the object `config` to them with properties corresponding to the type of the launched process. If the server consists of 10 processes, then each mod file will be requested 10 times, each time with a different type of config.
 
-Properties can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder [`example-mods`](https://github.com/screeps/launcher/tree/master/init_dist/example-mods) offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
+All `config` child objects are `EventEmitter` instances that you can listen for game engine events. They also contain some properties that can be simple numeral or string configuration parameters as well as functions that you can redefine thus changing server behavior. Their number will increase with time. We have not prepared documentation for all the available properties yet, but the folder [`example-mods`](https://github.com/screeps/launcher/tree/master/init_dist/example-mods) offers a few simple examples of what you can change by mods. We also recommend to investigate the `config` object of various processes on your own to find out what is possible.
 
 Installing mods
 ---------------
