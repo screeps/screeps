@@ -1,3 +1,6 @@
+#### 2.2.0
+* Game changes according to [2016-11-27 changelog](http://support.screeps.com/hc/en-us/articles/213649289).
+
 #### 2.1.3
 * Removed respawn delay timer.
  
