@@ -1,3 +1,7 @@
+#### 2.2.1
+* Updated LokiJS dependency to 1.4.2 version that [fixes](https://github.com/techfort/LokiJS/pull/509) corruption of `db.json` file.
+* Fixed a bug with invalid `Map.describeExits` result for newly generated rooms.
+
 #### 2.2.0
 * Game changes according to [2016-11-27 changelog](http://support.screeps.com/hc/en-us/articles/213649289).
 
