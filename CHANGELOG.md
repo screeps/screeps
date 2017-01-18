@@ -1,3 +1,9 @@
+#### 2.2.2
+* Disallowed `Promise` objects since due to their security vulnerability in virtual machine environment.  
+* Fixed a bug with invalid runtime data for a controller signed by another player, but owned by the current player.
+* Disabled recycling creeps that are not spawned yet.
+* Creeps can be renewed by multiple spawns simultaneously now.
+
 #### 2.2.1
 * Updated LokiJS dependency to 1.4.2 version that [fixes](https://github.com/techfort/LokiJS/pull/509) corruption of `db.json` file.
 * Fixed a bug with invalid `Map.describeExits` result for newly generated rooms.

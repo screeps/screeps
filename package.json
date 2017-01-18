@@ -1,6 +1,6 @@
 {
   "name": "screeps",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A standalone server for programming game Screeps",
   "main": "package.json",
   "bin": {
@@ -15,8 +15,8 @@
   "dependencies": {
     "@screeps/backend": "2.0.3",
     "@screeps/common": "2.0.1",
-    "@screeps/driver": "2.0.2",
-    "@screeps/engine": "2.1.0",
+    "@screeps/driver": "2.0.3",
+    "@screeps/engine": "2.1.1",
     "@screeps/launcher": "2.1.4",
     "@screeps/pathfinding": "0.4.16",
     "@screeps/storage": "2.0.2"
