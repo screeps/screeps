@@ -1,3 +1,6 @@
+#### 2.3.0
+* Added support for RoomVisual API according to this [changelog](https://screeps.zendesk.com/hc/en-us/articles/115001047425).
+
 #### 2.2.2
 * Disallowed `Promise` objects since due to their security vulnerability in virtual machine environment.  
 * Fixed a bug with invalid runtime data for a controller signed by another player, but owned by the current player.
