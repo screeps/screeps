@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/screeps.svg)](https://badge.fury.io/js/screeps)
+
 [![logo](logo.png)](https://screeps.com)
 
 [Screeps](https://screeps.com) is a MMO RTS sandbox game for programmers, wherein the core mechanic is programming your units AI. You control your colony by writing JavaScript which operate 24/7 in the single persistent world filled by other players on par with you.
