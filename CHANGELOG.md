@@ -1,3 +1,6 @@
+#### 2.4.0
+* Added support for memory segments and other changes according to this [changelog](https://screeps.zendesk.com/hc/en-us/articles/115001536629).
+
 #### 2.3.0
 * Added support for RoomVisual API according to this [changelog](https://screeps.zendesk.com/hc/en-us/articles/115001047425).
 
