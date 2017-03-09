@@ -1,3 +1,6 @@
+#### 2.5.0
+* Added support for Respawn Areas according to this [changelog](http://support.screeps.com/hc/en-us/articles/115001774029).
+
 #### 2.4.0
 * Added support for memory segments and other changes according to this [changelog](https://screeps.zendesk.com/hc/en-us/articles/115001536629).
 
