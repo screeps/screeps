@@ -1,3 +1,6 @@
+#### 2.6.0
+* Added game changes according to this [changelog](http://blog.screeps.com/2017/05/changelog-2017-05-11/).
+
 #### 2.5.0
 * Added support for Respawn Areas according to this [changelog](http://support.screeps.com/hc/en-us/articles/115001774029).
 
