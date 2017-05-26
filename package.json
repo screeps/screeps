@@ -1,6 +1,6 @@
 {
   "name": "screeps",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "A standalone server for programming game Screeps",
   "main": "package.json",
   "bin": {
