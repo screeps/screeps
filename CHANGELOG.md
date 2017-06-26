@@ -1,3 +1,6 @@
+#### 2.7.1
+* Added game changes according to this [changelog](http://blog.screeps.com/2017/06/changelog-2017-06-26/).
+
 #### 2.7.0
 * Added public memory segments support according to this [changelog](http://blog.screeps.com/2017/05/changelog-2017-05-26/).
 
