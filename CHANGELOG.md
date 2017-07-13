@@ -1,3 +1,6 @@
+#### 2.7.2
+* Fixed a bug with inactive bots.
+
 #### 2.7.1
 * Added game changes according to this [changelog](http://blog.screeps.com/2017/06/changelog-2017-06-26/).
 
