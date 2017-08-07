@@ -1,3 +1,5 @@
+#### 2.8.0
+* Added game changes support according to this [changelog](http://blog.screeps.com/2017/08/shards/).
 #### 2.7.2
 * Fixed a bug with inactive bots.
 
