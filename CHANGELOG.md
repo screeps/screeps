@@ -1,3 +1,6 @@
+#### 2.8.2
+* Sandbox security hotfix
+
 #### 2.8.1
 * Sandbox security hotfix
 
