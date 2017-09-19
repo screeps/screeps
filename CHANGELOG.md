@@ -1,5 +1,5 @@
-#### 2.8.2
-* Sandbox security hotfix
+#### 2.9.0
+* Added game changes support according to this [changelog](http://blog.screeps.com/2017/09/changelog-2017-09-19/).
 
 #### 2.8.1
 * Sandbox security hotfix
