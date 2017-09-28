@@ -1,3 +1,6 @@
+#### 2.10.0
+* Added game changes support according to this [changelog](http://blog.screeps.com/2017/09/changelog-2017-09-28/).
+
 #### 2.9.0
 * Added game changes support according to this [changelog](http://blog.screeps.com/2017/09/changelog-2017-09-19/).
 
