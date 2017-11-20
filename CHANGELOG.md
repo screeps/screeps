@@ -1,3 +1,6 @@
+#### 2.11.0
+* Add support for new WebGL renderer.
+
 #### 2.10.1 - 2.10.4
 * Hotfixes.
 
