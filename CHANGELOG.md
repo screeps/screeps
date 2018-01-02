@@ -1,3 +1,6 @@
+#### 2.12.1
+* Hotfixes.
+
 #### 2.12.0
 * Add support for binary modules according to this [changelog](http://blog.screeps.com/2017/12/changelog-2017-12-14/).
 
