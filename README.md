@@ -21,6 +21,8 @@ npx screeps init
 npx screeps start
 ```
 
+If installing on Debian-based Linux distributions (such as Ubuntu) make sure to install the `build-essential` package first, as otherwise various components of screeps that require native compiling can fail in ways which are hard to troubleshoot.
+
 Prerequisites:
  * Node.js 8 LTS or higher
  * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193))
