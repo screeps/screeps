@@ -16,18 +16,27 @@ The server consists of multiple parallel processes linked to each other. There i
 **Console launcher.** You can also launch the server without the GUI using the command line:
 
 ```
-npm install -g screeps
-screeps init
-screeps start
+npm install screeps
+npx screeps init
+npx screeps start
 ```
 
 Prerequisites:
- * Node.js 6 or higher
- * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193)) 
+ * Node.js 8 LTS or higher
+ * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193))
+ * Build tools (`apt install build-essential` for Ubuntu, [Visual Studio](https://www.visualstudio.com/vs/) for Windows, etc) 
 
 You will be prompted for your Steam Web API key, you can obtain it on [this page](https://steamcommunity.com/dev/apikey).
 
 **Your own launcher.** The launchers are intended to launch other server's processes and give them correct environment variables. You can launch those processes your own way (for example, via upstart/systemd, for distributing them across different machines, or setting up an automated testing framework). Please refer to the file [`launcher/lib/start.js`](https://github.com/screeps/launcher/tree/master/lib/start.js) for the list of environment variables that each process needs.
+
+
+Storage
+-------
+
+The default built-in storage is based on [LokiJS](http://lokijs.org/) library which allows to embed it in pure JavaScript environments like the Steam game client. It stores all data in the `db.json` file. However, you can manually replace the storage engine with another community solution to improve performance.
+
+See [this step-by-step guide](http://docs.screeps.com/contributed/ps_ubuntu.html) which explains how to install a standalone private server on Ubuntu using MongoDB and Redis as a storage.
 
 Connect to server
 -----------------
@@ -41,7 +50,7 @@ Launch options
 
 If you use a stock launcher (either desktop or console), the file `.screepsrc` in the current catalog stores launch configuration options. You can specify them directly when you launch the server using the console command `start`.
 
-	> screeps start --help	
+	> npx screeps start --help	
 	Usage: start [options]	
 	Start all processes. Launch options can be configured from command line or using the .screepsrc file in the same folder.	
 	Options:
@@ -97,7 +106,7 @@ Command Line Interface (CLI)
 The running server process provides administrative access using a separate port (21026 by default) which allows executing inner server commands using batch commands. It is accessible through the Steam GUI or using this console command:
    
 ```
-screeps cli
+npx screeps cli
 ```
 
 The CLI server contains a JavaScript virtual machine allowing to run any valid JS code and work with inner server functions. They allow changing game objects and call procedures, including those added by you. Some examples of such commands:
@@ -147,7 +156,7 @@ Installing mods
 There are three methods to install a mod to your server:
 
 * Edit `mods.json` manually and add a new entry to the array in it.
-* If the mod is published to the NPM repository, you can run `npm install my-screeps-mod` in your server folder, and it will be added automatically. The mod's `package.json` should contain `"screeps_mod":true` parameter in this case:
+* If the mod is published to the NPM repository, you can run `npm install my-screeps-mod` in your server folder, and it will be added automatically. (***CAUTION:** There is [a bug](https://github.com/npm/npm/issues/19258) in some npm 5.x versions which prevents auto install hooks from running.)* The mod's `package.json` should contain `"screeps_mod":true` parameter in this case:
 ```
 {
   "name": "my-screeps-mod",
@@ -156,7 +165,7 @@ There are three methods to install a mod to your server:
   "screeps_mod": true
 }
 ```
-* Using the Steam Workshop (this is still under development).
+* Using the Steam Workshop.
 
 NPC bots
 --------
