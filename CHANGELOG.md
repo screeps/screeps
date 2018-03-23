@@ -1,3 +1,9 @@
+#### 2.13.1
+* Hotfixes. 
+
+#### 2.13.0
+* Added game changes support according to this [changelog](http://blog.screeps.com/2018/03/changelog-2018-03-05/).
+ 
 #### 2.12.1
 * Hotfixes.
 
