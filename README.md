@@ -22,9 +22,9 @@ npx screeps start
 ```
 
 Prerequisites:
- * Node.js 8 LTS or higher
+ * Node.js LTS version 8.11.2 (or later 8.x) _or_ LTS version v10.13.0 (or later 10.x) 
  * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193))
- * Build tools (`apt install build-essential` for Ubuntu, [Visual Studio](https://www.visualstudio.com/vs/) for Windows, etc) 
+ * Build tools (`apt install build-essential` for Ubuntu, `npm install -g windows-build-tools` or [Visual Studio](https://www.visualstudio.com/vs/) or [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/) for Windows, etc) 
 
 You will be prompted for your Steam Web API key, you can obtain it on [this page](https://steamcommunity.com/dev/apikey).
 
