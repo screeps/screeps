@@ -1,6 +1,6 @@
 {
   "name": "screeps",
-  "version": "3.4.3",
+  "version": "3.4.4",
   "description": "A standalone server for programming game Screeps",
   "main": "package.json",
   "bin": {
@@ -19,7 +19,7 @@
     "@screeps/engine": "3.3.2",
     "@screeps/launcher": "3.3.4",
     "@screeps/pathfinding": "0.4.16",
-    "@screeps/storage": "4.2.1"
+    "@screeps/storage": "4.2.2"
   },
   "engines": {
     "node": ">=8.10.0",
