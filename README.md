@@ -22,7 +22,7 @@ npx screeps start
 ```
 
 Prerequisites:
- * Node.js 10 LTS or higher
+ * Node.js (version 10, >=10.13.0 but <11.0.0)
  * Python 2 (for node-gyp, [Python 3 is not supported](https://github.com/nodejs/node-gyp/issues/193))
  * Build tools (`apt install build-essential` for Ubuntu, [Visual Studio](https://www.visualstudio.com/vs/) for Windows, etc) 
 
