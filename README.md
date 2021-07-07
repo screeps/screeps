@@ -34,7 +34,7 @@ You will be prompted for your Steam Web API key, you can obtain it on [this page
 Storage
 -------
 
-The default built-in storage is based on [LokiJS](http://lokijs.org/) library which allows to embed it in pure JavaScript environments like the Steam game client. It stores all data in the `db.json` file. However, you can manually replace the storage engine with another community solution to improve performance.
+The default built-in storage is based on [LokiJS](http://techfort.github.io/LokiJS/) library which allows to embed it in pure JavaScript environments like the Steam game client. It stores all data in the `db.json` file. However, you can manually replace the storage engine with another community solution to improve performance.
 
 See [this step-by-step guide](http://docs.screeps.com/contributed/ps_ubuntu.html) which explains how to install a standalone private server on Ubuntu using MongoDB and Redis as a storage.
 
