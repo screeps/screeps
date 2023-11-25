@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@screeps/backend": "3.2.4",
-    "@screeps/common": "2.15.3",
+    "@screeps/common": "2.15.5",
     "@screeps/driver": "5.2.2",
     "@screeps/engine": "^4.2.14",
     "@screeps/launcher": "4.1.1",
