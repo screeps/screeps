@@ -13,7 +13,7 @@
     "url": "https://github.com/screeps/screeps.git"
   },
   "dependencies": {
-    "@screeps/backend": "3.2.3",
+    "@screeps/backend": "3.2.4",
     "@screeps/common": "2.15.3",
     "@screeps/driver": "5.2.1",
     "@screeps/engine": "^4.2.14",
