@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "npm explore @screeps/driver -- npx webpack",
-    "install": "npm run build"
+    "postinstall": "npm run build"
   },
   "author": "Artem Chivchalov <contact@screeps.com>",
   "license": "ISC",
