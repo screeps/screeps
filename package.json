@@ -18,7 +18,7 @@
     "@screeps/driver": "5.2.2",
     "@screeps/engine": "^4.2.14",
     "@screeps/launcher": "4.1.1",
-    "@screeps/pathfinding": "0.4.16",
+    "@screeps/pathfinding": "0.4.17",
     "@screeps/storage": "5.1.2"
   },
   "engines": {
