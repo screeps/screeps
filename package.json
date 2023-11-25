@@ -6,6 +6,10 @@
   "bin": {
     "screeps": "bin/screeps.js"
   },
+  "scripts": {
+    "build": "npm explore @screeps/driver -- npx webpack",
+    "install": "npm run build"
+  },
   "author": "Artem Chivchalov <contact@screeps.com>",
   "license": "ISC",
   "repository": {
