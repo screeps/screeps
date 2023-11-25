@@ -16,7 +16,7 @@
     "@screeps/backend": "3.2.4",
     "@screeps/common": "2.15.5",
     "@screeps/driver": "5.2.2",
-    "@screeps/engine": "^4.2.14",
+    "@screeps/engine": "4.2.18",
     "@screeps/launcher": "4.1.1",
     "@screeps/pathfinding": "0.4.17",
     "@screeps/storage": "5.1.2"
