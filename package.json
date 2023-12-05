@@ -7,7 +7,7 @@
     "screeps": "bin/screeps.js"
   },
   "scripts": {
-    "postinstall": "cd ../.. && npm explore @screeps/driver -- npx webpack"
+    "postinstall": "cd `node_modules` && npm explore @screeps/driver -- npx webpack"
   },
   "author": "Artem Chivchalov <contact@screeps.com>",
   "license": "ISC",
@@ -22,7 +22,8 @@
     "@screeps/engine": "4.2.20-rc1",
     "@screeps/launcher": "4.1.1",
     "@screeps/pathfinding": "0.4.17",
-    "@screeps/storage": "5.1.2"
+    "@screeps/storage": "5.1.2",
+    "node_modules-path": "2.0.7"
   },
   "engines": {
     "node": ">=10.13.0",
