@@ -18,11 +18,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '10.x'
-          registry-url: 'https://npm.pkg.github.com'
       - name: 👷 Install
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔐 Setup npm registry (github)
+        run: npm config set registry https://npm.pkg.github.com
       - name: 📦️ Publish package (github registry)
         if: github.ref_name == 'master'
         run: npm publish
