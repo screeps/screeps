@@ -19,8 +19,6 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@screeps'
       - name: 👷 Install
         run: npm ci
         env:
@@ -40,7 +38,6 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@screeps'
       - name: 📦️ Publish package (npmjs)
         if: github.ref_name == 'master'
         run: npm publish
