@@ -18,8 +18,8 @@
   "dependencies": {
     "@screeps/backend": "3.2.4",
     "@screeps/common": "2.15.5",
-    "@screeps/driver": "5.2.3-rc3",
-    "@screeps/engine": "4.2.20-rc1",
+    "@screeps/driver": "5.2.3",
+    "@screeps/engine": "4.2.20",
     "@screeps/launcher": "4.1.1",
     "@screeps/pathfinding": "0.4.17",
     "@screeps/storage": "5.1.2",
