@@ -7,7 +7,7 @@
     "screeps": "bin/screeps.js"
   },
   "scripts": {
-    "postinstall": "node -e \"process.chdir(require('node_modules-path')())\" && npm explore @screeps/driver -- npx webpack"
+    "postinstall": "node postinstall.js"
   },
   "author": "Artem Chivchalov <contact@screeps.com>",
   "license": "ISC",
