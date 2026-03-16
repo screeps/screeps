@@ -1,0 +1,43 @@
+name: Build electron binaries
+on:
+  push:
+    tags:
+      - 'build-electron-binaries'
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: macos-latest
+            platform: macos
+          - os: windows-latest
+            platform: windows
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    steps:
+      - name: ⤵️ Checkout
+        uses: actions/checkout@v4
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+      - name: 👷 Install
+        run: npm ci
+      - name: 🏗️ Build electron binaries
+        run: |
+          npx node-gyp rebuild --target=40.8.1 --arch=x64 --dist-url=https://electronjs.org/headers --directory=node_modules/isolated-vm
+          npx node-gyp rebuild --target=40.8.1 --arch=x64 --dist-url=https://electronjs.org/headers --directory=node_modules/@screeps/driver/native
+
+      - name: 📦️ Upload isolated-vm binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-vm-${{ matrix.platform }}
+          path: node_modules/isolated-vm/build/Release/isolated_vm.node
+      - name: 📦️ Upload native pathfinder binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-pf-${{ matrix.platform }}
+          path: node_modules/@screeps/driver/native/build/Release/driver_native.node
