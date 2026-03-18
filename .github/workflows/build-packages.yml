@@ -10,24 +10,27 @@ jobs:
         include:
           - os: ubuntu-latest
             platform: linux
+            container: node:24-bullseye
           - os: macos-latest
             platform: macos
           - os: windows-latest
             platform: windows
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container || '' }}
     permissions:
       contents: read
     steps:
       - name: ⤵️ Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: 🔨 Setup node
-        uses: actions/setup-node@v4
+        if: ${{ !matrix.container }}
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
       - name: 👷 Install
         run: npm ci
       - name: 📦️ Upload package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: package-${{ matrix.platform }}
           path: node_modules/
