@@ -1,8 +1,8 @@
-name: Build electron binaries
+name: Build binaries
 on:
   push:
     tags:
-      - 'build-electron-binaries'
+      - 'build-binaries'
 jobs:
   build:
     strategy:
@@ -10,27 +10,25 @@ jobs:
         include:
           - os: ubuntu-latest
             platform: linux
+            container: node:24-bullseye
           - os: macos-latest
             platform: macos
           - os: windows-latest
             platform: windows
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container || '' }}
     permissions:
       contents: read
     steps:
       - name: ⤵️ Checkout
         uses: actions/checkout@v4
       - name: 🔨 Setup node
+        if: ${{ !matrix.container }}
         uses: actions/setup-node@v4
         with:
-          node-version: '24.x'
+          node-version: '24.14.0'
       - name: 👷 Install
         run: npm ci
-      - name: 🏗️ Build electron binaries
-        run: |
-          npx node-gyp rebuild --target=40.8.1 --arch=x64 --dist-url=https://electronjs.org/headers --directory=node_modules/isolated-vm
-          npx node-gyp rebuild --target=40.8.1 --arch=x64 --dist-url=https://electronjs.org/headers --directory=node_modules/@screeps/driver/native
-
       - name: 📦 Packing binaries
         shell: bash
         run: |
