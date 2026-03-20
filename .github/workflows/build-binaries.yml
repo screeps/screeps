@@ -13,6 +13,7 @@ jobs:
             container: node:24-bullseye
           - os: macos-latest
             platform: macos
+            npm_arch: universal
           - os: windows-latest
             platform: windows
     runs-on: ${{ matrix.os }}
@@ -29,6 +30,8 @@ jobs:
           node-version: '24.14.0'
       - name: 👷 Install
         run: npm ci
+        env:
+          npm_config_arch: ${{ matrix.npm_arch }}
       - name: 📦 Packing binaries
         shell: bash
         run: |
