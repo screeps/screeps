@@ -11,9 +11,6 @@ jobs:
           - os: ubuntu-latest
             platform: linux
             container: node:24-bullseye
-          - os: macos-latest
-            platform: macos
-            npm_arch: universal
           - os: windows-latest
             platform: windows
     runs-on: ${{ matrix.os }}
@@ -30,17 +27,101 @@ jobs:
           node-version: '24.14.0'
       - name: 👷 Install
         run: npm ci
-        env:
-          npm_config_arch: ${{ matrix.npm_arch }}
       - name: 📦 Packing binaries
         shell: bash
         run: |
           mkdir -p dist
           cp node_modules/isolated-vm/build/Release/isolated_vm.node dist/
           cp node_modules/@screeps/driver/native/build/Release/native.node dist/
-
       - name: 📦️ Upload binaries
         uses: actions/upload-artifact@v4
         with:
           name: binaries-${{ matrix.platform }}
+          path: dist/
+
+  build-macos-x64:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: ⤵️ Checkout
+        uses: actions/checkout@v4
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+      - name: 👷 Install (no scripts)
+        run: npm ci --ignore-scripts
+      - name: 🔨 Build native modules (x64)
+        run: npm rebuild isolated-vm @screeps/driver
+        env:
+          npm_config_arch: x64
+      - name: 📦 Pack
+        run: |
+          mkdir -p dist
+          cp node_modules/isolated-vm/build/Release/isolated_vm.node dist/
+          cp node_modules/@screeps/driver/native/build/Release/native.node dist/
+      - name: 📦️ Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries-macos-x64
+          path: dist/
+
+  build-macos-arm64:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: ⤵️ Checkout
+        uses: actions/checkout@v4
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.14.0'
+      - name: 👷 Install (no scripts)
+        run: npm ci --ignore-scripts
+      - name: 🔨 Build native modules (arm64)
+        run: npm rebuild isolated-vm @screeps/driver
+        env:
+          npm_config_arch: arm64
+      - name: 📦 Pack
+        run: |
+          mkdir -p dist
+          cp node_modules/isolated-vm/build/Release/isolated_vm.node dist/
+          cp node_modules/@screeps/driver/native/build/Release/native.node dist/
+      - name: 📦️ Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries-macos-arm64
+          path: dist/
+
+  lipo-macos:
+    needs: [build-macos-x64, build-macos-arm64]
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    steps:
+      - name: ⬇️ Download x64
+        uses: actions/download-artifact@v4
+        with:
+          name: binaries-macos-x64
+          path: x64
+      - name: ⬇️ Download arm64
+        uses: actions/download-artifact@v4
+        with:
+          name: binaries-macos-arm64
+          path: arm64
+      - name: 🍎 Create universal binaries
+        run: |
+          mkdir -p dist
+          lipo -create -output dist/isolated_vm.node x64/isolated_vm.node arm64/isolated_vm.node
+          lipo -create -output dist/native.node x64/native.node arm64/native.node
+      - name: 🧐 Verify
+        run: |
+          lipo -info dist/isolated_vm.node
+          lipo -info dist/native.node
+      - name: 📦️ Upload binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: binaries-macos
           path: dist/
