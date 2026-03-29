@@ -30,7 +30,11 @@ jobs:
       - name: 👷 Install
         run: npm ci
       - name: 🔨 Install additional dependencies
-        run: npm install @electron/remote@2.1.3 --save
+        shell: bash
+        run: npm install $(node -p "Object.entries(require('./node_modules/@screeps/launcher/package.json').devDependencies).map(([k,v])=>k+'@'+v).join(' ')")
+      - name: 🧹 Cleanup electron
+        shell: bash
+        run: rm -rf node_modules/electron
       - name: 📦️ Upload package
         uses: actions/upload-artifact@v7
         with:
