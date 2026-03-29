@@ -29,6 +29,8 @@ jobs:
           node-version: '24.x'
       - name: 👷 Install
         run: npm ci
+      - name: 🔨 Install additional dependencies
+        run: npm install @electron/remote@2.1.3 --save
       - name: 📦️ Upload package
         uses: actions/upload-artifact@v7
         with:
