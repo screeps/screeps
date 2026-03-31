@@ -40,3 +40,4 @@ jobs:
         with:
           name: package-${{ matrix.platform }}
           path: node_modules/
+          include-hidden-files: true
