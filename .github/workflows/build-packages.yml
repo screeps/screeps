@@ -5,23 +5,15 @@ on:
       - 'build-package'
 jobs:
   build:
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            platform: linux
-            container: node:24-bullseye
-          - os: macos-latest
-            platform: macos
-          - os: windows-latest
-            platform: windows
-    runs-on: ${{ matrix.os }}
-    container: ${{ matrix.container || '' }}
+    runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
       - name: ⤵️ Checkout
         uses: actions/checkout@v6
+      - name: Get version from package.json
+        id: get_version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
       - name: 🔨 Setup node
         uses: actions/setup-node@v6
         with:
@@ -31,12 +23,16 @@ jobs:
       - name: 🔨 Install additional dependencies
         shell: bash
         run: npm install $(node -p "Object.entries(require('./node_modules/@screeps/launcher/package.json').devDependencies).map(([k,v])=>k+'@'+v).join(' ')")
-      - name: 🧹 Cleanup electron
+      - name: 🧹 Cleanup binaries
         shell: bash
-        run: rm -rf node_modules/electron
+        run: |
+          rm -rf node_modules/electron
+          rm node_modules/isolated-vm/build/Release/isolated_vm.node
+          rm node_modules/@screeps/driver/native/build/Release/native.node
+          rm node_modules/@screeps/driver/build/runtime.snapshot.bin
       - name: 📦️ Upload package
         uses: actions/upload-artifact@v7
         with:
-          name: package-${{ matrix.platform }}
-          path: node_modules/
+          name: package-${{ env.VERSION }}
+          path: node_modules
           include-hidden-files: true
