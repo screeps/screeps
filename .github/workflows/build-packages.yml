@@ -30,9 +30,14 @@ jobs:
           rm node_modules/isolated-vm/build/Release/isolated_vm.node
           rm node_modules/@screeps/driver/native/build/Release/native.node
           rm node_modules/@screeps/driver/build/runtime.snapshot.bin
-      - name: 📦️ Upload package
+      - name: 🚚 Move node_modules to server/package/node_modules
+        shell: bash
+        run: |
+          mkdir -p server/package
+          mv node_modules server/package/node_modules
+      - name: 📦️ Uplad package
         uses: actions/upload-artifact@v7
         with:
           name: package-${{ env.VERSION }}
-          path: node_modules
+          path: "*/package/node_modules/**"
           include-hidden-files: true
