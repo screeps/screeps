@@ -23,7 +23,6 @@ jobs:
       - name: ⤵️ Checkout
         uses: actions/checkout@v6
       - name: 🔨 Setup node
-        if: ${{ !matrix.container }}
         uses: actions/setup-node@v6
         with:
           node-version: '24.14.0'
