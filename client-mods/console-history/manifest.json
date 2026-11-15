@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Screeps: console command history",
+  "version": "1.0.0",
+  "description": "Up and Down in the game console bring back the commands sent before, like in a terminal.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://screeps.com/a/*",
+        "https://screeps.com/ptr/*",
+        "https://screeps.com/season/*"
+      ],
+      "js": ["console-history.user.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    }
+  ]
+}
