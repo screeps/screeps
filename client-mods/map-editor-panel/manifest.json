@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Screeps: Script, Console and Memory on the world map",
+  "version": "1.0.0",
+  "description": "Shows the bottom panel of the room view (Script, Console, Memory) on the world map pages.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://screeps.com/a/*",
+        "https://screeps.com/ptr/*",
+        "https://screeps.com/season/*"
+      ],
+      "js": ["map-editor-panel.user.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    }
+  ]
+}
