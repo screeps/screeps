@@ -44,6 +44,20 @@ You can connect to your private server using the Steam game client. Click "Chang
 
 ![client](client.png)
 
+Script, Console and Memory on the world map
+-------------------------------------------
+
+The game client shows the bottom panel with the **Script**, **Console** and **Memory** tabs in the room view only. The client is not a part of this repository and the server does not serve it, so the panel is added on the client side: [`client-mods/map-editor-panel`](client-mods/map-editor-panel) is a small script for the browser client at https://screeps.com/a/ that puts the same panel on the world map, both the classic one and the new one.
+
+Install it in one of these ways and reload the game page:
+
+* **Chrome extension.** Open `chrome://extensions`, turn on *Developer mode*, press *Load unpacked* and choose the `client-mods/map-editor-panel` folder.
+* **Userscript.** Add `map-editor-panel.user.js` from that folder to Tampermonkey or Violentmonkey.
+
+It is the panel of the room view itself: the same hotkeys (Alt+Enter, Alt+1, Alt+2, Alt+3), the same pop-out window, and the size and the minimized state it has in the room view. Console commands and Memory belong to the shard the map shows. Memory watches follow the shard the map was opened with: after switching the shard inside the new map, open the map again to see them for the other shard.
+
+The Steam client cannot load browser scripts, so it is not covered.
+
 Launch options
 --------------
 
